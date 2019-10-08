@@ -2,7 +2,7 @@
 
 namespace Ultraleet\WP\SoftwareLicenseManager\Packages;
 
-use Ultraleet\WP\SoftwareLicenseManager\Packages\Components\AdminMenu;
+use Ultraleet\WP\SoftwareLicenseManager\Packages\Components\PackageManagement;
 
 class Bootstrap
 {
@@ -23,7 +23,7 @@ class Bootstrap
         if (!is_admin()) {
             return;
         }
-        Loader::instance()->get(AdminMenu::class);
+        Loader::instance()->get(PackageManagement::class);
     }
 
     /**
