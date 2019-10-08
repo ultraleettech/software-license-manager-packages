@@ -2,9 +2,6 @@
     "name": "ultraleet/software-license-manager-packages",
     "description": "WordPress plugin for adding packages support to the Software License Manager plugin.",
     "type": "wordpress-plugin",
-    "require": {
-        "ultraleet/wp-requirements-checker": "^1.0"
-    },
     "license": "MIT",
     "authors": [
         {
@@ -12,5 +9,11 @@
             "email": "renx81@gmail.com"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {"Ultraleet\\WP\\SoftwareLicenseManager\\Packages\\": "src/"}
+    },
+    "require": {
+        "ultraleet/wp-requirements-checker": "^1.0"
+    }
 }
