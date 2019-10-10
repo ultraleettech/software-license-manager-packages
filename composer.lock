@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "333373e5b73df0fed89dfa238f14eaa7",
+    "content-hash": "9fa180b59b29ff6e171bdcb6240e0cbb",
     "packages": [
         {
             "name": "ultraleet/wp-requirements-checker",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ultraleettech/wp-requirements-checker.git",
-                "reference": "e27bd8c8cd8bbd48405355cd84267f865938ec8d"
+                "reference": "a43d09a937c6c7667acfc7d21804d288d7a6b1cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ultraleettech/wp-requirements-checker/zipball/e27bd8c8cd8bbd48405355cd84267f865938ec8d",
-                "reference": "e27bd8c8cd8bbd48405355cd84267f865938ec8d",
+                "url": "https://api.github.com/repos/ultraleettech/wp-requirements-checker/zipball/a43d09a937c6c7667acfc7d21804d288d7a6b1cc",
+                "reference": "a43d09a937c6c7667acfc7d21804d288d7a6b1cc",
                 "shasum": ""
             },
             "type": "library",
@@ -37,7 +37,7 @@
                 }
             ],
             "description": "Helper library for WordPress plugins to check for minimum PHP and WP versions.",
-            "time": "2019-10-08T08:37:18+00:00"
+            "time": "2019-10-10T05:24:36+00:00"
         }
     ],
     "packages-dev": [],

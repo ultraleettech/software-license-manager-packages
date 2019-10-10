@@ -2,17 +2,15 @@
 
 namespace Ultraleet\WP\SoftwareLicenseManager\Packages;
 
+use WP_Screen;
 use Ultraleet\WP\SoftwareLicenseManager\Packages\Components\PackageManagement;
+use Ultraleet\WP\SoftwareLicenseManager\Packages\Components\LicensePackageEditor;
 
 class Bootstrap
 {
     public function __construct()
     {
-        add_action('plugins_loaded', function() {
-            if ($this->isSlmActive()) {
-                add_action('init', [$this, 'init']);
-            }
-        });
+        add_action('init', [$this, 'init']);
     }
 
     /**
@@ -24,16 +22,13 @@ class Bootstrap
             return;
         }
         Loader::instance()->get(PackageManagement::class);
+        add_action('current_screen', [$this, 'adminScreen']);
     }
 
-    /**
-     * Make sure parent plugin is installed and active.
-     *
-     * @return bool
-     */
-    private function isSlmActive(): bool
+    public function adminScreen(WP_Screen $screen)
     {
-        $activePlugins = apply_filters('active_plugins', get_option('active_plugins'));
-        return in_array('software-license-manager/slm_bootstrap.php', $activePlugins);
+        if ('license-manager_page_wp_lic_mgr_addedit' == $screen->id) {
+            Loader::instance()->get(LicensePackageEditor::class);
+        }
     }
 }
