@@ -2,23 +2,15 @@
 
 namespace Ultraleet\WP\SoftwareLicenseManager\Packages\Components;
 
+use Ultraleet\WP\SoftwareLicenseManager\Packages\Traits\FiltersAdminPageContents;
+
 class LicensePackageEditor
 {
-    public function __construct()
-    {
-        add_action('in_admin_header', [$this, 'startBuffering']);
-        add_action('in_admin_footer', [$this, 'filterPageContents']);
-    }
+    use FiltersAdminPageContents;
 
-    public function startBuffering()
+    public function filterPageContents(string $contents): string
     {
-        ob_start();
-    }
-
-    public function filterPageContents()
-    {
-        $contents = ob_get_clean();
-        echo preg_replace(
+        return preg_replace(
             '% {24}<th scope=\"row\">Product Reference</th>.+?</td>%s',
             $this->getPackageRowContents(),
             $contents
@@ -36,6 +28,7 @@ class LicensePackageEditor
         }
         $packages = get_posts([
             'post_type' => 'license_package',
+            'post_status' => 'publish',
             'posts_per_page' => -1,
             'order' => 'ASC',
         ]);

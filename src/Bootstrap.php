@@ -5,6 +5,7 @@ namespace Ultraleet\WP\SoftwareLicenseManager\Packages;
 use WP_Screen;
 use Ultraleet\WP\SoftwareLicenseManager\Packages\Components\PackageManagement;
 use Ultraleet\WP\SoftwareLicenseManager\Packages\Components\LicensePackageEditor;
+use Ultraleet\WP\SoftwareLicenseManager\Packages\Components\LicensePackageColumnAdder;
 
 class Bootstrap
 {
@@ -29,6 +30,9 @@ class Bootstrap
     {
         if ('license-manager_page_wp_lic_mgr_addedit' == $screen->id) {
             Loader::instance()->get(LicensePackageEditor::class);
+        }
+        if ('toplevel_page_slm-main' == $screen->id) {
+            Loader::instance()->get(LicensePackageColumnAdder::class);
         }
     }
 }
